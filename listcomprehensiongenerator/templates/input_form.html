@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>List Comprehension Generator</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    {% csrf_token %} {# Include CSRF token in the form template #}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>List Comprehension Generator</h1>
+        <form id="listForm">
+            {% csrf_token %} {# Include CSRF token in the form #}
+            <div id="inputPairs">
+                <div class="input-group">
+                    <h3>Pair 1</h3>
+                    <label for="list1">Input List 1</label>
+                    <input type="text" name="list1[]" placeholder="comma seperated values: 1,2..." required><br>
+                    <label for="list2">Output List 1</label>
+                    <input type="text" name="list2[]" placeholder="comma seperated values: 1,2..." required><br>
+                </div>
+            </div>
+            <div id="buttonFunctions">
+                <button type="button" id="addPair">Add Pair</button>
+                <button type="button" id="removePair">Remove Pair</button>
+                <button type="button" id="clearAll">Clear All</button>
+            </div>
+            <button type="submit">Generate Code</button>
+        </form>
+
+        <div id="resultDiv"></div>
+    </div>
+    <script src="{% static 'script.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
