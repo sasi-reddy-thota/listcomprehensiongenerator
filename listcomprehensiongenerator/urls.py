@@ -18,5 +18,5 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('listcomprehension/', views.list_comprehension_generator, name='list_addition'),
+    path('', views.list_comprehension_generator, name='list_addition'),
 ]

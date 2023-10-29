@@ -31,12 +31,13 @@ $(document).ready(function(){
                     });
                 } else {
                     // Handle successful response
-                    var codeBlock = '';
+                    var codeBlock = ''+response.result;
+                    console.log(response.result)
 
-                    response.results.forEach(function(resultList) {
-                        var resultString = '[' + resultList.join(', ') + ']';
-                        codeBlock += resultString + '\n';
-                    });
+                    // response.results.forEach(function(resultList) {
+                    //     var resultString = '[' + resultList.join(', ') + ']';
+                    //     codeBlock += resultString + '\n';
+                    // });
 
                     var codeContainer = '<div class="code-container"><pre><code class="code-block">' + codeBlock + '</code></pre><button class="copy-button">Copy</button></div>';
                     $('#resultDiv').hide().html(codeContainer).fadeIn('slow');
@@ -133,3 +134,4 @@ $(document).ready(function(){
         });
     });
 });
+
